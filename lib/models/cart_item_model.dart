@@ -12,4 +12,9 @@ class CartItem {
   CartItem(this.id, this.product, this.quantity, this.userId, this.createdAt, [this.modifiedAt]) {
     total = quantity * product.price;
   }
+
+  @override
+  String toString() {
+    return 'CartItem{id: $id, product: $product, total: $total, userId: $userId, quantity: $quantity, createdAt: $createdAt, modifiedAt: $modifiedAt}';
+  }
 }

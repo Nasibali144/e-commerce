@@ -1,9 +1,11 @@
-import 'package:e_commerce/database/categories.dart';
+import 'package:e_commerce/models/cart_model.dart';
 import 'package:e_commerce/pages/intro_page.dart';
 import 'package:e_commerce/services/io_service.dart';
 
 import 'cart_page.dart';
 import 'category_page.dart';
+
+Cart cart = Cart(01, user.id, DateTime.now().toString(), []);
 
 class HomePage {
   HomePage() {
