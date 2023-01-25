@@ -41,8 +41,8 @@ class CategoryPage {
 
     print("\nQaysi mahsulotni tanlamoqchisiz ?\nOrtga qaytish uchun 0 ni kiriting:)");
 
-    index = (io.number ?? 0).toInt();
-    if(index == 0 || index < 0 || index >= productList.length) { // 2
+    index = (io.number ?? 0).toInt(); // 2
+    if(index == 0 || index < 0 || index > productList.length /*2*/) { // 2
       viewCategory();
     } else {
       index--;
