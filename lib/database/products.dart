@@ -9,3 +9,12 @@ final productCocaCola = Product(3, "coca-cola", "Coca-Cola: 1l, Shakarsiz", "${R
 final productWater = Product(4, "Water", "Tashkent suv: 1l", "${Random().nextInt(10000000)}".padLeft(8, '0'), categoryDrinks, 2000.0, noDiscount, DateTime.now().toString());
 final productMilk = Product(5, "milk", "Musafo: 1l", "${Random().nextInt(10000000)}".padLeft(8, '0'), categoryMilk, 15000.0, noDiscount, DateTime.now().toString());
 final productMeat = Product(6, "meat", "Qasobxona, qo'ygo'shti: 1kg", "${Random().nextInt(10000000)}".padLeft(8, '0'), categoryMeat, 80000.0, noDiscount, DateTime.now().toString());
+
+List<Product> products = [
+  productApple,
+  productBanana,
+  productCocaCola,
+  productWater,
+  productMilk,
+  productMeat,
+];

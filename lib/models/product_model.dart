@@ -14,4 +14,9 @@ class Product {
 
   Product(this.id, this.name, this.desc, this.sku, this.category, this.price,
       this.discount, this.createdAt, [this.modifiedAt]);
+
+  @override
+  String toString() {
+    return "$name: $price";
+  }
 }

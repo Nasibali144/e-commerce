@@ -13,4 +13,9 @@ class Discount {
     this.createdAt, [
     this.desc,
   ]);
+
+  @override
+  String toString() {
+    return "$name: $discountPercent";
+  }
 }

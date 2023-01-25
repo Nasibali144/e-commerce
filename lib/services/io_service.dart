@@ -12,4 +12,8 @@ class IOService {
     String word = stdin.readLineSync() ?? '';
     return num.tryParse(word.trim());
   }
+
+  void console(Object? object) {
+    stdout.write(object);
+  }
 }

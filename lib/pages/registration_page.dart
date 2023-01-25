@@ -1,8 +1,8 @@
 import 'package:e_commerce/models/user_model.dart';
 import 'package:e_commerce/pages/home_page.dart';
 import 'package:e_commerce/services/io_service.dart';
+import 'intro_page.dart';
 
-late User user;
 
 class RegistrationPage {
   RegistrationPage() {
