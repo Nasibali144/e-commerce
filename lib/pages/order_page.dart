@@ -1,3 +1,4 @@
+import 'package:e_commerce/models/cart_model.dart';
 import 'package:e_commerce/models/order_model.dart';
 import 'package:e_commerce/models/payment_model.dart';
 import 'package:e_commerce/pages/home_page.dart';
@@ -9,6 +10,7 @@ class OrderPage {
   OrderPage({required this.order}) {
     payment = Payment(order.paymentId, order.id, "none", "no-paid", DateTime.now().toString());
     print("Order Page");
+    viewOrder();
   }
 
   void viewOrder() {
@@ -47,11 +49,12 @@ class OrderPage {
     print("5. Naxt");
     index = (io.number ?? 0).toInt();
     if(0 < index && index < 5) {
+      print("Karta raqamingizni kiriting:");
       String cardNumber = io.text;
       // TODO: card validation
       payment.provider = cardType[index - 1];
       payment.status = "paid";
-
+      cart = Cart(cart.id, cart.userId, cart.createdAt, []);
       print("Loading...");
       print("Haridingiz uchun rahmat. Manzilimiz: Toshkent sh. Shayxontoxur tumani. Beruniy 3a. PDP Academy. Alibaba 303 - xona! B28 Group.");
     } else if(index == 5) {

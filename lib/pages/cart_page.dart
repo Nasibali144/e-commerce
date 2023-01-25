@@ -1,5 +1,3 @@
-import 'dart:svg';
-
 import 'package:e_commerce/models/cart_model.dart';
 import 'package:e_commerce/models/order_item_model.dart';
 import 'package:e_commerce/models/order_model.dart';
@@ -38,7 +36,7 @@ class CartPage {
     } else if(index == 3) {
       List<OrderItem> list = cart.carts.map((element) => OrderItem(element.id, element.product, element.quantity, element.userId, DateTime.now().toString())).toList();
       OrderPage(
-        order: Order(01, user.id, cart.total, 01, DateTime.now().toString(), cart.amount, list)
+        order: Order(1, user.id, cart.total, 1, DateTime.now().toString(), cart.amount, list)
       );
     } else {
       HomePage();

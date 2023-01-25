@@ -30,11 +30,11 @@ class CategoryPage {
       return;
     } else if(index == categories.length + 1) {
       HomePage();
-    } else if(index < 0 || index > categories.length + 1) {
+    } else if(index < 0 || index > categories.length) {
       print("\nIltimos ko'rsatilgan taribdagi son kiriting");
       viewCategory();
     }
-    final productList = categoryMap[categories[index - 1]] ?? [];
+    final productList = categoryMap[categories[--index]] ?? [];
     for(int i = 0; i < productList.length; i++) {
       print("${i + 1} - ${productList[i]}");
     }
@@ -42,38 +42,39 @@ class CategoryPage {
     print("\nQaysi mahsulotni tanlamoqchisiz ?\nOrtga qaytish uchun 0 ni kiriting:)");
 
     index = (io.number ?? 0).toInt();
-    if(index == 0 || index < 0 || index > categories.length) {
+    if(index == 0 || index < 0 || index >= productList.length) { // 2
+      viewCategory();
+    } else {
+      index--;
+      var product = productList[index];
+      print("Name: ${product.name}");
+      print("Price: ${product.price}");
+      print("Discount: ${product.discount}");
+      print("Description: ${product.desc}");
+      print("Created at: ${product.createdAt}");
+
+      print("1. Add to cart");
+      print("2. Ortga qaytish");
+
+      index = (io.number ?? 0).toInt();
+
+      if(index != 1) {
+        viewCategory();
+      }
+
+      print("\nBu mahsulotdan qancha miqdorda olmoqchisiz?(son qiymatda)");
+      index = (io.number ?? 0).toInt();
+
+      if(index <= 0) {
+        print("Iltimos to'g'ri qiymat kiritishingizni so'raymiz");
+        viewCategory();
+      }
+
+      final cartItem = CartItem(01, product, index, user.id, DateTime.now().toString());
+      cart = Cart(01, user.id, cart.createdAt, cart.carts..add(cartItem), DateTime.now().toString());
+      print("\n");
       viewCategory();
     }
-
-    var product = productList[index - 1];
-    print("Name: ${product.name}");
-    print("Price: ${product.price}");
-    print("Discount: ${product.discount}");
-    print("Description: ${product.desc}");
-    print("Created at: ${product.createdAt}");
-
-    print("1. Add to cart");
-    print("2. Ortga qaytish");
-
-    index = (io.number ?? 0).toInt();
-
-    if(index != 1) {
-      viewCategory();
-    }
-
-    print("\nBu mahsulotdan qancha miqdorda olmoqchisiz?(son qiymatda)");
-    index = (io.number ?? 0).toInt();
-
-    if(index <= 0) {
-      print("Iltimos to'g'ri qiymat kiritishingizni so'raymiz");
-      viewCategory();
-    }
-
-    final cartItem = CartItem(01, product, index, user.id, DateTime.now().toString());
-    cart = Cart(01, user.id, cart.createdAt, cart.carts..add(cartItem), DateTime.now().toString());
-    print("\n");
-    viewCategory();
   }
 
   void filterProduct(Category category) {
